@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>Mxkj-Tool</artifactId>
+        <groupId>com.mxkj</groupId>
+        <version>1.0.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>word-pdf</artifactId>
+    <version>1.0.6.5-SNAPSHOT</version>
+    <description>word 转 pdf</description>
+
+    <dependencies>
+        <!--  aspose words  -->
+        <dependency>
+            <groupId>com</groupId>
+            <artifactId>aspose-words</artifactId>
+            <version>15.8.0</version><!--版本号-->
+        </dependency>
+
+        <dependency>
+            <groupId>com.mxkj</groupId>
+            <artifactId>word-pdf</artifactId>
+            <version>1.0.1-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.poi</groupId>
+            <artifactId>poi-ooxml</artifactId>
+            <version>4.1.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.pdfbox</groupId>
+            <artifactId>pdfbox</artifactId>
+            <version>2.0.24</version>
+        </dependency>
+    </dependencies>
+
+    <distributionManagement>
+        <repository><!--部署项目产生的构件到远程仓库需要的信息 -->
+            <id>my-releases</id>
+            <name>My releases</name>
+            <url>http://192.168.10.10:18081/repository/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>my-snapshots</id>
+            <name>My snapshots</name>
+            <url>http://192.168.10.10:18081/repository/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <!--mxkj 私有仓库-->
+        <repository>
+            <id>my-public</id>
+            <url>http://192.168.10.10:18081/repository/maven-public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>always</updatePolicy>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <build>
+        <plugins>
+            <!-- 不过滤字体文件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>xml</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
