@@ -9,27 +9,7 @@
    * 默认字体为宋体，已绑定在本包中, 无需在操作系统中再次安装。
 
 ### 一、安装
-   * 本安装包来自于洺信科技192.168.10.10私有仓库
-
-    <!--依赖添加-->
-    <dependency>
-        <groupId>com.mxkj</groupId>
-        <artifactId>word-pdf</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
-    </dependency>
-
-    <!--mxkj 私有仓库-->
-    <repository>
-        <id>my-public</id>
-        <url>http://192.168.10.10:18081/repository/maven-public/</url>
-        <releases>
-            <enabled>true</enabled>
-        </releases>
-        <snapshots>
-            <enabled>true</enabled>
-            <updatePolicy>always</updatePolicy>
-        </snapshots>
-    </repository>
+  略
 
 ### 二、使用
 下述样例：Student类
